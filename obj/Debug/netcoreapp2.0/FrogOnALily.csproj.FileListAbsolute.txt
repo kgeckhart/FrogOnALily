@@ -1,0 +1,11 @@
+C:\Source\Repos\FrogOnALily\bin\Debug\netcoreapp2.0\FrogOnALily.deps.json
+C:\Source\Repos\FrogOnALily\bin\Debug\netcoreapp2.0\FrogOnALily.runtimeconfig.json
+C:\Source\Repos\FrogOnALily\bin\Debug\netcoreapp2.0\FrogOnALily.runtimeconfig.dev.json
+C:\Source\Repos\FrogOnALily\bin\Debug\netcoreapp2.0\FrogOnALily.dll
+C:\Source\Repos\FrogOnALily\bin\Debug\netcoreapp2.0\FrogOnALily.pdb
+C:\Source\Repos\FrogOnALily\obj\Debug\netcoreapp2.0\FrogOnALily.csprojResolveAssemblyReference.cache
+C:\Source\Repos\FrogOnALily\obj\Debug\netcoreapp2.0\FrogOnALily.csproj.CoreCompileInputs.cache
+C:\Source\Repos\FrogOnALily\obj\Debug\netcoreapp2.0\FrogOnALily.AssemblyInfoInputs.cache
+C:\Source\Repos\FrogOnALily\obj\Debug\netcoreapp2.0\FrogOnALily.AssemblyInfo.cs
+C:\Source\Repos\FrogOnALily\obj\Debug\netcoreapp2.0\FrogOnALily.dll
+C:\Source\Repos\FrogOnALily\obj\Debug\netcoreapp2.0\FrogOnALily.pdb
