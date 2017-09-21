@@ -19,6 +19,7 @@
 /obj
 /bin
 /.vs
+/wwwroot
 
 # IDE - VSCode
 .vscode/*
