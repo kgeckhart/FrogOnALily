@@ -1,4 +1,17 @@
-<h1>Application says what?</h1>
-<ul>
-  <li *ngFor="let value of apiValues">{{value}}</li>
-</ul>
+<md-toolbar color="primary">
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+        <button md-menu-item routerLink="/home">Home</button>
+        <button md-menu-item routerLink="/about">About</button>
+        <button md-menu-item routerLink="/gallery">Gallery</button>
+        <button md-menu-item routerLink="/investment">Investment</button>
+    </div>
+    <!--<button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+     <md-icon>menu</md-icon>
+    </button>-->
+</md-toolbar>
+<!--<md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item routerLink="/home">Home</button>
+    <button md-menu-item routerLink="/about">About</button>
+    <button md-menu-item routerLink="/gallery">Gallery</button>
+    <button md-menu-item routerLink="/investment">Investment</button>
+</md-menu>-->

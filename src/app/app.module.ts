@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { MdButtonModule, MdMenuModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -11,7 +15,11 @@ import { HttpModule } from '@angular/http';
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forRoot([{ path: '', component: AppComponent}]),
+        MdButtonModule,
+        MdMenuModule,
+        FlexLayoutModule
     ],
     providers: [],
     bootstrap: [AppComponent]
