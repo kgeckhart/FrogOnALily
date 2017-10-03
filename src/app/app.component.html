@@ -1,12 +1,12 @@
-<md-toolbar color="primary">
-    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-        <button fxFlex="75px" md-menu-item routerLink="/home">Home</button>
-        <button fxFlex="75px" md-menu-item routerLink="/about">About</button>
-        <button fxFlex="85px" md-menu-item routerLink="/gallery">Gallery</button>
-        <button fxFlex="115px" md-menu-item routerLink="/investment">Investment</button>
+<md-toolbar class="transparent">
+    <div class="toolbarrow" fxLayout="row" fxShow="false" fxShow.gt-sm>
+        <button fxFlex="85px" md-menu-item routerLink="/home">Home</button>
+        <button fxFlex="85px" md-menu-item routerLink="/about">About</button>
+        <button fxFlex="90px" md-menu-item routerLink="/gallery">Gallery</button>
+        <button fxFlex="125px" md-menu-item routerLink="/investment">Investment</button>
     </div>
     <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
-     <md-icon>menu</md-icon>
+    <md-icon>menu</md-icon>
     </button>
     <span class="fill-remaining-space"></span>
 </md-toolbar>
@@ -16,6 +16,6 @@
     <button md-menu-item routerLink="/gallery">Gallery</button>
     <button md-menu-item routerLink="/investment">Investment</button>
 </md-menu>
-<div class='container'>
+<div class="container">
     <router-outlet></router-outlet>
 </div>
