@@ -10,4 +10,36 @@
 
 .mat-menu-item{
     font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+}
+
+.site-branding{
+    color: rgb(255,255,255);
+    height: 100%;
+    text-align: center; 
+    background-repeat: no-repeat;
+    background-image: url(http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/07/cropped-bg-horz.jpg);
+    background-size: contain;
+}
+
+.container{
+    height: 100%;
+}
+
+.site-title{
+    font-family:'Playfair Display', sans-serif;
+    font-size: 50px;
+    font-weight: normal;
+    text-transform: uppercase;
+    display: inline;
+}
+
+.site-description{
+    font-family:'Montserrat', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: block;
+    font-weight: normal;
 }
