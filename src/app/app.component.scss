@@ -4,42 +4,18 @@
   flex: 1 1 auto;
 }
 
-.transparent{
+.transparent {
   background-color: transparent !important;
 }
 
-.mat-menu-item{
-    font-family:'Montserrat', sans-serif;
-    text-transform: uppercase;
-    font-size: 12px;
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+.site-logo {
+    max-width: 600px;
     display: block;
-}
-
-.site-branding{
-    color: rgb(255,255,255);
-    height: 100%;
-    text-align: center; 
-    background-repeat: no-repeat;
-    background-image: url(http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/07/cropped-bg-horz.jpg);
-    background-size: contain;
-}
-
-.container{
-    height: 100%;
-}
-
-.site-title{
-    font-family:'Playfair Display', sans-serif;
-    font-size: 50px;
-    font-weight: normal;
-    text-transform: uppercase;
-    display: inline;
-}
-
-.site-description{
-    font-family:'Montserrat', sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
-    display: block;
-    font-weight: normal;
+    margin: 0 auto;
 }

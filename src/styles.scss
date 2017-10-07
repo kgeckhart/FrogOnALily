@@ -1,16 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display');
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Montserrat, sans-serif'
+);
+
+@include mat-core($custom-typography);
 
 html { 
-    background: url("http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/09/IMG_6300-1_Shrunk.jpg") no-repeat center center fixed; 
+    background: url("http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/09/IMG_6300-1_Shrunk.jpg") no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-}
-
-body {
- margin: 0px;
- }
-.margin-left-right-50 {
-  margin-left: 50px;
-  margin-right: 50px;
 }

@@ -1,4 +1,4 @@
-<md-toolbar class="transparent">
+<md-toolbar class="transparent mat-typography">
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
         <button fxFlex="85px" md-menu-item routerLink="/home">Home</button>
         <button fxFlex="85px" md-menu-item routerLink="/about">About</button>
@@ -16,12 +16,9 @@
     <button md-menu-item routerLink="/gallery">Gallery</button>
     <button md-menu-item routerLink="/investment">Investment</button>
 </md-menu>
-<div fxLayout="column">
-    <div fxFlex="30%" class="site-branding">
-        <h1 class="site-title">Frog on a lily photography</h1>
-        <h2 class="site-description">"Your beauty, my focus!"</h2>
-    </div>
-    <div fxFlex="70%" class="container">
-        <router-outlet></router-outlet>
-    </div>
+<div class="site-logo">
+    <img src="..\assets\logo.png" alt="logo"/>
+</div>
+<div>
+    <router-outlet></router-outlet>
 </div>
