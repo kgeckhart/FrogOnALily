@@ -8,14 +8,39 @@
   background-color: transparent !important;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+.site-banner { 
+    background: url(../assets/banner.jpg) no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 250px;
     width: auto\9; /* ie8 */
 }
 
-.site-logo {
-    max-width: 600px;
-    display: block;
+.company-name {
+    font-family: 'Playfair Display';
+    text-transform: uppercase;
+    font-size: 50px;
+    display: table;
     margin: 0 auto;
+    color: white;
+}
+
+.company-moto {
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-size: 12px;
+    display: table;
+    margin: 0 auto;
+    color: white;
+}
+
+.content{
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-top: 1.6em;
+    border-top-color: white;
+    border-top-style: solid;
+    border-top-width: 1px;
 }

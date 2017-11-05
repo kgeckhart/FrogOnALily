@@ -10,7 +10,7 @@ $custom-typography: mat-typography-config(
 @include mat-core($custom-typography);
 
 html { 
-    background: url("http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/09/IMG_6300-1_Shrunk.jpg") no-repeat center center; 
+    background: url(/assets/IMG_6300-1_Shrunk.jpg) no-repeat center center; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
