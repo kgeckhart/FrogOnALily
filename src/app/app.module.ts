@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -45,15 +44,7 @@ import {
   MdStepperModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
-
-const appRoutes: Routes = [
-    { path: 'welcome', component: HomeComponent},
-    { path: 'about', component: AboutComponent},
-    { path: 'investment', component: InvestmentComponent},
-    { path: 'gallery', component: GalleryComponent},
-    { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-    { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   exports: [
@@ -107,7 +98,7 @@ export class AppMaterialModule {}
         BrowserAnimationsModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(appRoutes),
+        AppRoutingModule,
         FlexLayoutModule,
         MdButtonModule,
         MdMenuModule
@@ -116,5 +107,3 @@ export class AppMaterialModule {}
     bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-platformBrowserDynamic().bootstrapModule(AppModule);
