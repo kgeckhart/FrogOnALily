@@ -1,0 +1,46 @@
+.fill-remaining-space {
+   /*This fills the remaining space, by using flexbox.  
+  Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.site-banner { 
+    background: url(../assets/banner.jpg) no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 250px;
+    width: auto\9; /* ie8 */
+}
+
+.company-name {
+    font-family: 'Playfair Display';
+    text-transform: uppercase;
+    font-size: 50px;
+    display: table;
+    margin: 0 auto;
+    color: white;
+}
+
+.company-moto {
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-size: 12px;
+    display: table;
+    margin: 0 auto;
+    color: white;
+}
+
+.content{
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-top: 1.6em;
+    border-top-color: white;
+    border-top-style: solid;
+    border-top-width: 1px;
+}

@@ -16,6 +16,10 @@
 *.launch
 .settings/
 *.sublime-workspace
+/obj
+/bin
+/.vs
+/wwwroot
 
 # IDE - VSCode
 .vscode/*
@@ -40,3 +44,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+

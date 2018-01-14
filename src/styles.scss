@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display|Merriweather');
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Montserrat, sans-serif'
+);
+
+@include mat-core($custom-typography);
+
+html { 
+    background: url(/assets/IMG_6300-1_Shrunk.jpg) no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
