@@ -1,21 +1,21 @@
-<md-toolbar class="menubar transparent mat-typography">
+<mat-toolbar class="menubar transparent mat-typography">
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-        <button fxFlex="85px" md-menu-item routerLink="/home">Home</button>
-        <button fxFlex="85px" md-menu-item routerLink="/about">About</button>
-        <button fxFlex="90px" md-menu-item routerLink="/gallery">Gallery</button>
-        <button fxFlex="125px" md-menu-item routerLink="/investment">Investment</button>
+        <button fxFlex="85px" mat-menu-item routerLink="/home">Home</button>
+        <button fxFlex="85px" mat-menu-item routerLink="/about">About</button>
+        <button fxFlex="90px" mat-menu-item routerLink="/gallery">Gallery</button>
+        <button fxFlex="125px" mat-menu-item routerLink="/investment">Investment</button>
     </div>
-    <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
-    <md-icon>menu</md-icon>
+    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
     </button>
     <span class="fill-remaining-space"></span>
-</md-toolbar>
-<md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item routerLink="/home">Home</button>
-    <button md-menu-item routerLink="/about">About</button>
-    <button md-menu-item routerLink="/gallery">Gallery</button>
-    <button md-menu-item routerLink="/investment">Investment</button>
-</md-menu>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/home">Home</button>
+    <button mat-menu-item routerLink="/about">About</button>
+    <button mat-menu-item routerLink="/gallery">Gallery</button>
+    <button mat-menu-item routerLink="/investment">Investment</button>
+</mat-menu>
 <div class="site-banner">
     <div class ="company-name">
         <p>Frog on a lily photography</p>
