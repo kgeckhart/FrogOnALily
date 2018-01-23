@@ -20,13 +20,13 @@ import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpResponseBase, Ht
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
-export interface IPhotoshootsClient {
+export interface IPhotoshootService {
     getPhotoshoots(category: PhotoshootCategory | null | undefined): Observable<Photoshoot[] | null>;
-    getImagesForPhotoshoots(photoshootId: number): Observable<PhotoshootImage[] | null>;
+    getImagesForPhotoshoot(photoshootId: number): Observable<PhotoshootImage[] | null>;
 }
 
 @Injectable()
-export class PhotoshootsClient implements IPhotoshootsClient {
+export class PhotoshootService implements IPhotoshootService {
     private http: HttpClient;
     private baseUrl: string;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
@@ -91,7 +91,7 @@ export class PhotoshootsClient implements IPhotoshootsClient {
         return Observable.of<Photoshoot[] | null>(<any>null);
     }
 
-    getImagesForPhotoshoots(photoshootId: number): Observable<PhotoshootImage[] | null> {
+    getImagesForPhotoshoot(photoshootId: number): Observable<PhotoshootImage[] | null> {
         let url_ = this.baseUrl + "/api/photoshoots/{photoshootId}/images";
         if (photoshootId === undefined || photoshootId === null)
             throw new Error("The parameter 'photoshootId' must be defined.");
@@ -214,6 +214,7 @@ export interface IPhotoshoot {
 export class PhotoshootImage implements IPhotoshootImage {
     imageNumber: number;
     imageUri?: string | undefined;
+    thumbnailUri?: string | undefined;
 
     constructor(data?: IPhotoshootImage) {
         if (data) {
@@ -228,6 +229,7 @@ export class PhotoshootImage implements IPhotoshootImage {
         if (data) {
             this.imageNumber = data["imageNumber"];
             this.imageUri = data["imageUri"];
+            this.thumbnailUri = data["thumbnailUri"];
         }
     }
 
@@ -241,6 +243,7 @@ export class PhotoshootImage implements IPhotoshootImage {
         data = typeof data === 'object' ? data : {};
         data["imageNumber"] = this.imageNumber;
         data["imageUri"] = this.imageUri;
+        data["thumbnailUri"] = this.thumbnailUri;
         return data; 
     }
 }
@@ -248,6 +251,7 @@ export class PhotoshootImage implements IPhotoshootImage {
 export interface IPhotoshootImage {
     imageNumber: number;
     imageUri?: string | undefined;
+    thumbnailUri?: string | undefined;
 }
 
 export class SwaggerException extends Error {

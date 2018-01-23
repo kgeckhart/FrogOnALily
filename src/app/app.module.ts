@@ -1,15 +1,11 @@
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { InvestmentComponent } from './investment/investment.component';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -45,6 +41,12 @@ import {
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { InvestmentComponent } from './investment/investment.component';
+import { PhotoshootService } from './photoshootService';
+import { NgxImageGalleryModule } from 'ngx-image-gallery';
 
 @NgModule({
   exports: [
@@ -101,9 +103,12 @@ export class AppMaterialModule {}
         AppRoutingModule,
         FlexLayoutModule,
         MatButtonModule,
-        MatMenuModule
+        MatMenuModule,
+        NgxImageGalleryModule
     ],
-    providers: [],
+    providers: [
+      PhotoshootService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
