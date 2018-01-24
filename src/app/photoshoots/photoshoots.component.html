@@ -1,0 +1,9 @@
+<div class="panel panel-primary">
+    <div class="panel panel-body">
+        <!-- <div *ngFor="let photoshoot of photoshoots$ | async as photoshoots"> -->
+        <div *ngFor="let photoshoot of photoshoots">
+            {{photoshoot.name}}<br>{{photoshoot.shootDate | date:'longDate'}}<br>{{photoshoot.category}}
+            <ngx-image-gallery [images]="photoshoot.images" [conf]="galleryConfiguration"></ngx-image-gallery>
+        </div>
+    </div>
+</div>

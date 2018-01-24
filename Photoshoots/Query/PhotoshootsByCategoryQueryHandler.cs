@@ -14,7 +14,8 @@ namespace FrogOnALily.Photoshoots.Query
         public PhotoshootsByCategoryQueryHandler()
         {
             _photoshoots = new List<Photoshoot> {
-                new Photoshoot(1, "Kenton Robert", PhotoshootCategory.Newborn, new DateTime(2017, 9, 20), new Uri("http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/09/IMG_8376.jpg"))
+                new Photoshoot(1, "Kenton Robert", PhotoshootCategory.Newborn, new DateTime(2017, 9, 20), new Uri("http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/09/IMG_8376.jpg")),
+                new Photoshoot(2, "The Hartmans", PhotoshootCategory.Family, new DateTime(2017, 8, 28), new Uri("http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/09/IMG_4948.jpg"))
             };
         }
 

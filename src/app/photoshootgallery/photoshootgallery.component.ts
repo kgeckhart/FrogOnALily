@@ -4,11 +4,11 @@ import { PhotoshootService, IPhotoshoot, Photoshoot } from '../photoshootService
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-    templateUrl: './gallery.component.html',
-    styleUrls: ['./gallery.component.scss'],
+    templateUrl: './photoshootgallery.component.html',
+    styleUrls: ['./photoshootgallery.component.scss'],
     providers: [ PhotoshootService ]
 })
-export class GalleryComponent implements OnInit {
+export class PhotoshootGalleryComponent implements OnInit {
     @Input() photoshoot: IPhotoshoot;
     galleryImages: GALLERY_IMAGE[];
     galleryConfiguration: GALLERY_CONF = {
@@ -19,15 +19,14 @@ export class GalleryComponent implements OnInit {
         showImageTitle: false,
         inline: true,
         reactToMouseWheel: false,
-        showThumbnails: false,
         backdropColor: 'default'
     };
 
     constructor(private photoshootService: PhotoshootService) { }
 
     ngOnInit() {
-        let images = this.photoshootService.getImagesForPhotoshoot(this.photoshoot.id).
-            map(photoshootImages => photoshootImages.map(photoshootImage =>
-                ({ url : photoshootImage.imageUri, thumbnailUrl: photoshootImage.thumbnailUri })));
+        this.photoshootService.getImagesForPhotoshoot(this.photoshoot.id).
+            flatMap((v) => v).map(image => ({ url : image.imageUri, thumbnailUrl: image.thumbnailUri })).
+            subscribe((galleryImage) => (this.galleryImages.push(galleryImage)));
     }
 }
