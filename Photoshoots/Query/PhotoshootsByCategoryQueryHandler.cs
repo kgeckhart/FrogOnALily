@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System;
 using MediatR;
 using System.Threading.Tasks;
 using System.Linq;
@@ -9,26 +8,17 @@ namespace FrogOnALily.Photoshoots.Query
 {
     public class PhotoshootsByCategoryQueryHandler : IAsyncRequestHandler<PhotoshootsByCategoryQuery, IEnumerable<Photoshoot>>
     {
-        private List<Photoshoot> _photoshoots;
+        private readonly IImageRepository _repository;
 
-        public PhotoshootsByCategoryQueryHandler()
+        public PhotoshootsByCategoryQueryHandler(IImageRepository repository)
         {
-            _photoshoots = new List<Photoshoot> {
-                new Photoshoot(1, "Kenton Robert", PhotoshootCategory.Newborn, new DateTime(2017, 9, 20), new Uri("http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/09/IMG_8376.jpg")),
-                new Photoshoot(2, "The Hartmans", PhotoshootCategory.Family, new DateTime(2017, 8, 28), new Uri("http://d1h83yq8rkrddi.cloudfront.net/wp-content/uploads/2017/09/IMG_4948.jpg"))
-            };
+            _repository = repository;
         }
 
-        public Task<IEnumerable<Photoshoot>> Handle(PhotoshootsByCategoryQuery message)
+        public async Task<IEnumerable<Photoshoot>> Handle(PhotoshootsByCategoryQuery message)
         {
-            IEnumerable<Photoshoot> result = _photoshoots;
-
-            if (message.Category != null)
-            {
-                result = result.Where(photoshoot => photoshoot.Category == message.Category);
-            }
-
-            return Task.FromResult(result);
+            return (await _repository.PhotoshootByCategory(message.Category)).
+                OrderByDescending(photoshoot => photoshoot.ShootDate);
         }
     }
 }

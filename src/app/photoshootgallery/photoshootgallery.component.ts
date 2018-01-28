@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from 'ngx-image-gallery';
 import { PhotoshootService, IPhotoshoot, Photoshoot } from '../photoshootService';
 import { Observable } from 'rxjs/Observable';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './photoshootgallery.component.html',
@@ -17,12 +18,12 @@ export class PhotoshootGalleryComponent implements OnInit {
         showExtUrlControl: false,
         closeOnEsc: true,
         showImageTitle: false,
-        inline: true,
+        inline: false,
         reactToMouseWheel: false,
         backdropColor: 'default'
     };
 
-    constructor(private photoshootService: PhotoshootService) { }
+    constructor(private photoshootService: PhotoshootService, private sanitizer: DomSanitizer) { }
 
     ngOnInit() {
         this.photoshootService.getImagesForPhotoshoot(this.photoshoot.id).

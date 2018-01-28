@@ -1,3 +1,4 @@
+using FrogOnALily.Photoshoots.Query;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,6 +21,7 @@ namespace FrogOnALily
                 options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
             });
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
+            services.AddSingleton<IImageRepository, FileSystemImageRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +38,13 @@ namespace FrogOnALily
                     await next();
                 }
             });
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+           app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
                 .AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod());
