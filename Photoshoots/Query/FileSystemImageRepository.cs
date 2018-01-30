@@ -10,7 +10,7 @@ namespace FrogOnALily.Photoshoots.Query
 {
     public class FileSystemImageRepository : IImageRepository
     {
-        private const string ImageBasePath = @"\assets\website pictures medium\";
+        private const string ImageBasePath = @"\src\assets\website pictures medium\";
 
         public Task<List<Photoshoot>> PhotoshootByCategory(PhotoshootCategory? category = null)
         {
