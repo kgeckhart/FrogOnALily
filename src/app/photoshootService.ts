@@ -22,7 +22,7 @@ export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 export interface IPhotoshootService {
     getPhotoshoots(category: PhotoshootCategory | null | undefined): Observable<Photoshoot[] | null>;
-    getImagesForPhotoshoot(photoshootId: number): Observable<PhotoshootImage[] | null>;
+    getImagesForPhotoshoot(photoshootName: string): Observable<PhotoshootImage[] | null>;
 }
 
 @Injectable()
@@ -91,11 +91,11 @@ export class PhotoshootService implements IPhotoshootService {
         return Observable.of<Photoshoot[] | null>(<any>null);
     }
 
-    getImagesForPhotoshoot(photoshootId: number): Observable<PhotoshootImage[] | null> {
-        let url_ = this.baseUrl + "/api/photoshoots/{photoshootId}/images";
-        if (photoshootId === undefined || photoshootId === null)
-            throw new Error("The parameter 'photoshootId' must be defined.");
-        url_ = url_.replace("{photoshootId}", encodeURIComponent("" + photoshootId)); 
+    getImagesForPhotoshoot(photoshootName: string): Observable<PhotoshootImage[] | null> {
+        let url_ = this.baseUrl + "/api/photoshoots/{photoshootName}/images";
+        if (photoshootName === undefined || photoshootName === null)
+            throw new Error("The parameter 'photoshootName' must be defined.");
+        url_ = url_.replace("{photoshootName}", encodeURIComponent("" + photoshootName)); 
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -194,7 +194,6 @@ export class Photoshoot implements IPhotoshoot {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
         data["name"] = this.name;
         data["category"] = this.category;
         data["thumbnailUri"] = this.thumbnailUri;
@@ -204,7 +203,6 @@ export class Photoshoot implements IPhotoshoot {
 }
 
 export interface IPhotoshoot {
-    id: number;
     name?: string | undefined;
     category: PhotoshootCategory;
     thumbnailUri?: string | undefined;

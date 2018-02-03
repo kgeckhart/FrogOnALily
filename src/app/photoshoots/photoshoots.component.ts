@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from 'ngx-image-gallery';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { PhotoshootService, IPhotoshoot, Photoshoot, PhotoshootCategory } from '../photoshootService';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,21 +10,17 @@ import { Observable } from 'rxjs/Observable';
 })
 export class PhotoshootsComponent implements OnInit {
     photoshoots: Observable<IPhotoshoot[]>;
-    galleryConfiguration: GALLERY_CONF = {
-        showDeleteControl: false,
-        showCloseControl: false,
-        showExtUrlControl: false,
-        closeOnEsc: true,
-        showImageTitle: false,
-        inline: true,
-        reactToMouseWheel: false,
-        showThumbnails: false,
-        backdropColor: 'default'
-    };
-
-    constructor(private photoshootService: PhotoshootService) { }
+    dialog: MatDialog;
+    constructor(private photoshootService: PhotoshootService, dialog: MatDialog) { }
 
     ngOnInit() {
         this.photoshoots =  this.photoshootService.getPhotoshoots(undefined);
+    }
+
+    openDialog(photoshoot: IPhotoshoot): void {
+        console.log('dialog should open');
+        this.dialog.open(PhotoshootsComponent, {
+            data: photoshoot
+        });
     }
 }

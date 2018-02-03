@@ -6,6 +6,8 @@ namespace FrogOnALily.Photoshoots.Query
 {
     public interface IImageRepository
     {
-        Task<List<Photoshoot>> PhotoshootByCategory(PhotoshootCategory? category = null);
+        Task<IEnumerable<Photoshoot>> PhotoshootByCategory(PhotoshootCategory? category = null);
+
+        Task<IEnumerable<PhotoshootImage>> PhotoshootImagesByName(string photoshootName);
     }
 }

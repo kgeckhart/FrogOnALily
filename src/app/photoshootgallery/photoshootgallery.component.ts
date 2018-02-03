@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject} from '@angular/core';
 import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from 'ngx-image-gallery';
+import { MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 import { PhotoshootService, IPhotoshoot, Photoshoot } from '../photoshootService';
 import { Observable } from 'rxjs/Observable';
 
@@ -9,7 +10,6 @@ import { Observable } from 'rxjs/Observable';
     providers: [ PhotoshootService ]
 })
 export class PhotoshootGalleryComponent implements OnInit {
-    @Input() photoshoot: IPhotoshoot;
     galleryImages: GALLERY_IMAGE[];
     galleryConfiguration: GALLERY_CONF = {
         showDeleteControl: false,
@@ -22,10 +22,10 @@ export class PhotoshootGalleryComponent implements OnInit {
         backdropColor: 'default'
     };
 
-    constructor(private photoshootService: PhotoshootService) { }
+    constructor(@Inject(MAT_DIALOG_DATA) private photoshoot: IPhotoshoot, private photoshootService: PhotoshootService) { }
 
     ngOnInit() {
-        this.photoshootService.getImagesForPhotoshoot(this.photoshoot.id).
+        this.photoshootService.getImagesForPhotoshoot(this.photoshoot.name).
             flatMap((v) => v).map(image => ({ url : image.imageUri, thumbnailUrl: image.thumbnailUri })).
             subscribe((galleryImage) => (this.galleryImages.push(galleryImage)));
     }
