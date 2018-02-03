@@ -1,8 +1,7 @@
 <div class="panel panel-primary">
     <div class="panel panel-body" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="1%">
         <div *ngFor="let photoshoot of photoshoots | async" class="photoshoot" fxFlex>
-            {{photoshoot.name}}<br>{{photoshoot.shootDate | date:'longDate'}}<br>
-            <!-- {{photoshoot.category}}<br> -->
+            {{photoshoot.name}}<br>{{photoshoot.shootDate | date:'longDate'}}<br>{{photoshoot.category}}<br>
             <img src="{{photoshoot.thumbnailUri}}"/>
         </div>
     </div>

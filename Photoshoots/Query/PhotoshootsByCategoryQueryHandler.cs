@@ -3,10 +3,11 @@ using MediatR;
 using System.Threading.Tasks;
 using System.Linq;
 using FrogOnALily.Photoshoots.Model;
+using System.Threading;
 
 namespace FrogOnALily.Photoshoots.Query
 {
-    public class PhotoshootsByCategoryQueryHandler : IAsyncRequestHandler<PhotoshootsByCategoryQuery, IEnumerable<Photoshoot>>
+    public class PhotoshootsByCategoryQueryHandler : IRequestHandler<PhotoshootsByCategoryQuery, IEnumerable<Photoshoot>>
     {
         private readonly IImageRepository _repository;
 
@@ -14,10 +15,10 @@ namespace FrogOnALily.Photoshoots.Query
         {
             _repository = repository;
         }
-
-        public async Task<IEnumerable<Photoshoot>> Handle(PhotoshootsByCategoryQuery message)
+        
+        public async Task<IEnumerable<Photoshoot>> Handle(PhotoshootsByCategoryQuery request, CancellationToken cancellationToken)
         {
-            return (await _repository.PhotoshootByCategory(message.Category)).
+            return (await _repository.PhotoshootByCategory(request.Category)).
                 OrderByDescending(photoshoot => photoshoot.ShootDate);
         }
     }

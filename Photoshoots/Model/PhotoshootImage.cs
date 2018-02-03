@@ -4,14 +4,14 @@ namespace FrogOnALily.Photoshoots.Model
 {
     public class PhotoshootImage
     {
-        public PhotoshootImage(int imageNumber, Uri imageUri, Uri thumbnailUri)
+        public PhotoshootImage(string imageName, Uri imageUri, Uri thumbnailUri)
         {
-            ImageNumber = imageNumber;
+            ImageName = imageName;
             ImageUri = imageUri;
             ThumbnailUri = thumbnailUri;
         }
 
-        public int ImageNumber { get; }
+        public string ImageName { get; }
         public Uri ImageUri { get; }
         public Uri ThumbnailUri { get; }
     }

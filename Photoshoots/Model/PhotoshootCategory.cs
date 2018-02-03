@@ -9,7 +9,6 @@ namespace FrogOnALily.Photoshoots.Model
         Boudoir,
         Newborn,
         Senior,
-        Family,
-        Birth
+        Family
     }
 }

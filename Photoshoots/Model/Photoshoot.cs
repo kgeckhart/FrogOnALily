@@ -4,19 +4,17 @@ namespace FrogOnALily.Photoshoots.Model
 {
     public class Photoshoot
     {
-        public Photoshoot(int id, string name, PhotoshootCategory category, DateTime shootDate, string thumbnailUri)
+        public Photoshoot(string name, PhotoshootCategory category, DateTime shootDate, string thumbnailUri)
         {
-            Id = id;
             Name = name;
             ThumbnailUri = thumbnailUri;
             Category = category;
             ShootDate = shootDate;
         }
 
-        public int Id { get; }
         public string Name { get; }
         public PhotoshootCategory Category {get;}
-        public string ThumbnailUri { get; }
         public DateTime ShootDate { get; set; }
+        public string ThumbnailUri { get; }
     }
 }

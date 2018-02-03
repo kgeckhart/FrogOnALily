@@ -27,9 +27,9 @@ namespace FrogOnALily.Photoshoots
 
         [HttpGet("{photoshootId}/images")]
         [SwaggerResponse(typeof(IEnumerable<PhotoshootImage>))]
-        public async Task<IActionResult> GetImagesForPhotoshoots(int photoshootId)
+        public async Task<IActionResult> GetImagesForPhotoshoots(string photoshootName)
         {
-            return Ok(await _mediator.Send(new ImagesByPhotoshootIdQuery(photoshootId)));
+            return Ok(await _mediator.Send(new ImagesByPhotoshootNameQuery(photoshootName)));
         }
     }
 }

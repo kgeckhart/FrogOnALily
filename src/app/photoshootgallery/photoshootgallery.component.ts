@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from 'ngx-image-gallery';
 import { PhotoshootService, IPhotoshoot, Photoshoot } from '../photoshootService';
 import { Observable } from 'rxjs/Observable';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './photoshootgallery.component.html',
@@ -23,7 +22,7 @@ export class PhotoshootGalleryComponent implements OnInit {
         backdropColor: 'default'
     };
 
-    constructor(private photoshootService: PhotoshootService, private sanitizer: DomSanitizer) { }
+    constructor(private photoshootService: PhotoshootService) { }
 
     ngOnInit() {
         this.photoshootService.getImagesForPhotoshoot(this.photoshoot.id).

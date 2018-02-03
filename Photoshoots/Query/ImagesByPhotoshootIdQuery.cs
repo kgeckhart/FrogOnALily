@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace FrogOnALily.Photoshoots.Query
 {
-    public class ImagesByPhotoshootIdQuery : IRequest<IEnumerable<PhotoshootImage>>
+    public class ImagesByPhotoshootNameQuery : IRequest<IEnumerable<PhotoshootImage>>
     {
-        public ImagesByPhotoshootIdQuery(int photoshootId)
+        public ImagesByPhotoshootNameQuery(string photoshootName)
         {
-            PhotoshootId = photoshootId;
+            PhotoshootName = photoshootName;
         }
 
-        public int PhotoshootId { get; }
+        public string PhotoshootName { get; }
     }
 }
