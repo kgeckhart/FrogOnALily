@@ -1,9 +1,9 @@
 <div class="panel panel-primary">
     <div class="panel panel-body" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="1%">
-        <div *ngFor="let photoshoot of photoshoots | async" class="photoshoot" fxFlex>
-            <div class="photoshoot" ng-click="openDialog(photoshoot)">
+        <div *ngFor="let photoshoot of photoshoots | async" fxFlex>
+            <div class="photoshoot" on-click="openDialog(photoshoot.name)">
                 {{photoshoot.name}}<br>{{photoshoot.shootDate | date:'longDate'}}<br>{{photoshoot.category}}<br>
-                <img src="{{photoshoot.thumbnailUri}}" />
+                <img src="{{photoshoot.thumbnailUri}}"/>
             </div>
         </div>
     </div>

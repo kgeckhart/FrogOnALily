@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { PhotoshootService, IPhotoshoot, Photoshoot, PhotoshootCategory } from '../photoshootService';
 import { Observable } from 'rxjs/Observable';
+import { PhotoshootGalleryComponent } from '../photoshootgallery/photoshootgallery.component';
 
 @Component({
     templateUrl: './photoshoots.component.html',
@@ -10,8 +11,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class PhotoshootsComponent implements OnInit {
     photoshoots: Observable<IPhotoshoot[]>;
-    dialog: MatDialog;
-    constructor(private photoshootService: PhotoshootService, dialog: MatDialog) { }
+
+    constructor(private photoshootService: PhotoshootService, public dialog: MatDialog) { }
 
     ngOnInit() {
         this.photoshoots =  this.photoshootService.getPhotoshoots(undefined);
@@ -19,7 +20,7 @@ export class PhotoshootsComponent implements OnInit {
 
     openDialog(photoshoot: IPhotoshoot): void {
         console.log('dialog should open');
-        this.dialog.open(PhotoshootsComponent, {
+        this.dialog.open(PhotoshootGalleryComponent, {
             data: photoshoot
         });
     }

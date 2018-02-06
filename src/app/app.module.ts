@@ -113,6 +113,7 @@ export class AppMaterialModule {}
     providers: [
       PhotoshootService
     ],
+    entryComponents: [PhotoshootGalleryComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
