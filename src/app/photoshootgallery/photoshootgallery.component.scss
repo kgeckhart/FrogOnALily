@@ -1,4 +1,12 @@
-.photoshootgallery{
+.ngx-image-gallery {
     margin-left: 15%;
     margin-right: 15%;
+    width: 100%;
+    height: auto;
+}
+
+.ngx-image-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
 }

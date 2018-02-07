@@ -64,9 +64,12 @@ namespace FrogOnALily.Photoshoots.Query
             .GroupBy(image => image.imageKey).OrderBy(imageSet => imageSet.Key)
             .Select(imageSet =>
             {
-                var thumbnailPath = imageSet.Where(image => image.imageType == ImageType.Thumbnail).FirstOrDefault().imagePath;
-                var imagePath = imageSet.Where(image => image.imageType == ImageType.Large).FirstOrDefault().imagePath;
-                return new PhotoshootImage(AwsConstants.CloudfrontBaseUri + imagePath, AwsConstants.CloudfrontBaseUri + thumbnailPath);
+                var thumbnailPath = imageSet.Where(image => image.imageType == ImageType.Thumbnail)
+                    .FirstOrDefault().imagePath.Replace(" ", "+");
+                var imagePath = imageSet.Where(image => image.imageType == ImageType.Large)
+                    .FirstOrDefault().imagePath.Replace(" ", "+");
+                return new PhotoshootImage(AwsConstants.CloudfrontBaseUri + imagePath,
+                    AwsConstants.CloudfrontBaseUri + thumbnailPath);
             });
         }
     }

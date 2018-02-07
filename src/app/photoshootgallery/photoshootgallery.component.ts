@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from 'ngx-image-gallery';
-import { MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 import { PhotoshootService, IPhotoshoot, Photoshoot } from '../photoshootService';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
     templateUrl: './photoshootgallery.component.html',
@@ -10,24 +11,22 @@ import { Observable } from 'rxjs/Observable';
     providers: [ PhotoshootService ]
 })
 export class PhotoshootGalleryComponent implements OnInit {
-    galleryImages: GALLERY_IMAGE[] = new Array();
+    galleryImages: Observable<GALLERY_IMAGE[]>;
     galleryConfiguration: GALLERY_CONF = {
-        showDeleteControl: false,
-        showCloseControl: true,
         showExtUrlControl: false,
-        closeOnEsc: true,
         showImageTitle: false,
-        inline: false,
+        showThumbnails : false,
+        showCloseControl: false,
+        inline: true,
         reactToMouseWheel: false,
         backdropColor: 'default'
     };
 
-    constructor(@Inject(MAT_DIALOG_DATA) private photoshootName: string, private photoshootService: PhotoshootService) { }
+    constructor(private photoshootService: PhotoshootService, private route: ActivatedRoute) { }
 
     ngOnInit() {
-        console.log('init called ' + this.photoshootName);
-        this.photoshootService.getImagesForPhotoshoot(this.photoshootName).
-            flatMap((v) => v).map(image => ({ url : image.imageUri, thumbnailUrl: image.thumbnailUri })).
-            subscribe((galleryImage) => (this.galleryImages.push(galleryImage)));
+        this.galleryImages = this.route.paramMap.switchMap((params: ParamMap) =>
+            this.photoshootService.getImagesForPhotoshoot(params.get('name')).
+            map((v) => v.map(image => ({ url : image.imageUri, thumbnailUrl: image.thumbnailUri }))));
     }
 }
