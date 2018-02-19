@@ -1,4 +1,4 @@
-﻿namespace FrogOnALily.Photoshoots.Query
+namespace FrogOnALily.Photoshoots.Query
 {
     public partial class AwsImageRepository
     {
@@ -7,6 +7,7 @@
             Unknown,
             CoverPhoto,
             Thumbnail,
+            Medium,
             Large
         }
     }

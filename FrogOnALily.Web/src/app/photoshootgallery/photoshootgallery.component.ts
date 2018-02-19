@@ -24,6 +24,6 @@ export class PhotoshootGalleryComponent implements OnInit {
     ngOnInit() {
         this.galleryImages = this.route.paramMap.switchMap((params: ParamMap) =>
             this.photoshootService.getImagesForPhotoshoot(params.get('name')).
-            map((v) => v.map(image => ({ big : image.imageUri, medium : image.imageUri, small: image.imageUri }))));
+            map((v) => v.map(image => ({ big : image.imageUri, medium : image.mediumUri, small: image.thumbnailUri }))));
     }
 }

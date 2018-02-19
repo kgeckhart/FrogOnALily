@@ -56,19 +56,20 @@ namespace FrogOnALily.Photoshoots.Query
 
             return objectsInShoot.Select(objectInShoot =>
             {
-                var imagePath = objectInShoot.Key;
+                var imagePath = objectInShoot.Key.Replace(" ", "+");
                 var imageKey = imagePath.Remove(imagePath.LastIndexOf("_"));
-                var imageType = imagePath.Contains("Thumbnail") ? ImageType.Thumbnail : ImageType.Large;
+                var imageType = imagePath.Contains("Thumbnail") ? ImageType.Thumbnail :
+                    imagePath.Contains("Large") ? ImageType.Large : ImageType.Medium;
                 return (imagePath, imageKey, imageType);
             })
             .GroupBy(image => image.imageKey).OrderBy(imageSet => imageSet.Key)
             .Select(imageSet =>
             {
-                var thumbnailPath = imageSet.Where(image => image.imageType == ImageType.Thumbnail)
-                    .FirstOrDefault().imagePath.Replace(" ", "+");
-                var imagePath = imageSet.Where(image => image.imageType == ImageType.Large)
-                    .FirstOrDefault().imagePath.Replace(" ", "+");
+                var thumbnailPath = imageSet.Where(image => image.imageType == ImageType.Thumbnail).FirstOrDefault().imagePath;
+                var mediumPath = imageSet.Where(image => image.imageType == ImageType.Medium).FirstOrDefault().imagePath;
+                var imagePath = imageSet.Where(image => image.imageType == ImageType.Large).FirstOrDefault().imagePath;
                 return new PhotoshootImage(AwsConstants.CloudfrontBaseUri + imagePath,
+                    AwsConstants.CloudfrontBaseUri + mediumPath,
                     AwsConstants.CloudfrontBaseUri + thumbnailPath);
             });
         }

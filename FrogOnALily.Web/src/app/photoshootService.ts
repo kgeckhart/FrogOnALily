@@ -212,6 +212,7 @@ export interface IPhotoshoot {
 export class PhotoshootImage implements IPhotoshootImage {
     imageNumber: number;
     imageUri?: string | undefined;
+    mediumUri?: string | undefined;
     thumbnailUri?: string | undefined;
 
     constructor(data?: IPhotoshootImage) {
@@ -227,6 +228,7 @@ export class PhotoshootImage implements IPhotoshootImage {
         if (data) {
             this.imageNumber = data["imageNumber"];
             this.imageUri = data["imageUri"];
+            this.mediumUri = data["mediumUri"];
             this.thumbnailUri = data["thumbnailUri"];
         }
     }
@@ -241,6 +243,7 @@ export class PhotoshootImage implements IPhotoshootImage {
         data = typeof data === 'object' ? data : {};
         data["imageNumber"] = this.imageNumber;
         data["imageUri"] = this.imageUri;
+        data["mediumUri"] = this.mediumUri;
         data["thumbnailUri"] = this.thumbnailUri;
         return data; 
     }
