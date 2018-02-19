@@ -1,16 +1,14 @@
-using System;
-
 namespace FrogOnALily.Photoshoots.Model
 {
     public class PhotoshootImage
     {
-        public PhotoshootImage(int imageNumber, Uri imageUri)
+        public PhotoshootImage(string imageUri, string thumbnailUri)
         {
-            ImageNumber = imageNumber;
             ImageUri = imageUri;
+            ThumbnailUri = thumbnailUri;
         }
 
-        public int ImageNumber { get; }
-        public Uri ImageUri { get; }
+        public string ImageUri { get; }
+        public string ThumbnailUri { get; }
     }
 }

@@ -1,0 +1,38 @@
+.panel{
+    text-align: center;
+    color: white;
+}
+
+.panel-heading{
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+}
+
+.panel-body{
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.panel-primary{
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+.photoshoot {
+    height: auto; 
+    width: auto; 
+    max-width: 400px; 
+    max-height: auto;
+}
+
+.photoshoot img {
+    height: auto; 
+    width: auto; 
+    max-width: 400px; 
+    max-height: auto;
+}
+

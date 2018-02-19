@@ -25,11 +25,11 @@ namespace FrogOnALily.Photoshoots
             return Ok(await _mediator.Send(new PhotoshootsByCategoryQuery(category)));
         }
 
-        [HttpGet("{photoshootId}/images")]
+        [HttpGet("{photoshootName}/images")]
         [SwaggerResponse(typeof(IEnumerable<PhotoshootImage>))]
-        public async Task<IActionResult> GetImagesForPhotoshoots(int photoshootId)
+        public async Task<IActionResult> GetImagesForPhotoshoots(string photoshootName)
         {
-            return Ok(await _mediator.Send(new ImagesByPhotoshootIdQuery(photoshootId)));
+            return Ok(await _mediator.Send(new ImagesByPhotoshootNameQuery(photoshootName)));
         }
     }
 }
