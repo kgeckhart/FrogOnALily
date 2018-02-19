@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrogOnALily.Web", "FrogOnALily.Web\FrogOnALily.Web.csproj", "{2ED23D3F-C394-466F-A8D7-76C95871ED9B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrogOnALily", "FrogOnALily.PhotoshootUpload\FrogOnALily.PhotoshootUpload\FrogOnALily.csproj", "{D6967D86-D798-4B63-A866-590AC1EDECBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrogOnALily.PhotoshootUpload", "FrogOnALily.PhotoshootUpload\FrogOnALily.PhotoshootUpload.csproj", "{D6967D86-D798-4B63-A866-590AC1EDECBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
