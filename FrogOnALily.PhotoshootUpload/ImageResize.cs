@@ -43,7 +43,6 @@ namespace FrogOnALily.PhotoshootUpload
         {
             using (var image = Image.Load(sourceImagePath))
             {
-                Console.WriteLine($"Writing {destinationImagePath}");
                 using (var fileStream = File.Create(destinationImagePath))
                 {
                     image.Clone(x => x.Resize(width, 0)).SaveAsJpeg(fileStream);
