@@ -18,7 +18,7 @@
 *.sublime-workspace
 */obj
 */bin
-*/.vs
+.vs/
 */wwwroot
 
 # IDE - VSCode
@@ -44,4 +44,3 @@
 # System Files
 */.DS_Store
 */Thumbs.db
-.vs/FrogOnALily/v15/Server/sqlite3/storage.ide-wal
