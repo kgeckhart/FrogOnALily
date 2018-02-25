@@ -1,0 +1,26 @@
+#Backend Build Container
+FROM microsoft/aspnetcore-build:2.0 AS build-backend
+WORKDIR /app
+
+COPY *.csproj ./
+RUN dotnet restore
+
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+#Frontend Build Container
+FROM node:8-alpine as build-frontend
+COPY package.json package-lock.json ./
+RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
+
+RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
+WORKDIR /ng-app
+COPY . .
+RUN $(npm bin)/ng build --prod --build-optimizer
+
+#Build Runtime Container
+FROM microsoft/aspnetcore:2.0
+WORKDIR /app
+COPY --from=build-backend /app/out /app
+COPY --from=build-frontend /ng-app/wwwroot /app/wwwroot
+ENTRYPOINT ["dotnet", "FrogOnALily.Web.dll"]
