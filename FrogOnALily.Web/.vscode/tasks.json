@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/FrogOnALily.csproj"
+                "${workspaceRoot}/FrogOnAlily.Web/FrogOnALily.Web.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
