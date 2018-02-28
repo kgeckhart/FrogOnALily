@@ -62,6 +62,10 @@ namespace FrogOnALily
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwaggerUi(typeof(Startup).GetTypeInfo().Assembly, new SwaggerUiSettings()
+                {
+                    DefaultPropertyNameHandling = PropertyNameHandling.CamelCase
+                });
             }
             
            app.UseCors(builder => builder.AllowAnyOrigin()
@@ -70,10 +74,6 @@ namespace FrogOnALily
             app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseSwaggerUi(typeof(Startup).GetTypeInfo().Assembly, new SwaggerUiSettings()
-            {
-                DefaultPropertyNameHandling = PropertyNameHandling.CamelCase
-            });
         }
     }
 }
