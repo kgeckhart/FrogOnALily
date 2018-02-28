@@ -48,6 +48,7 @@ import { PhotoshootGalleryComponent } from './photoshootgallery/photoshootgaller
 import { PhotoshootsComponent } from './photoshoots/photoshoots.component';
 import { InvestmentComponent } from './investment/investment.component';
 import { PhotoshootService } from './photoshootService';
+import { API_BASE_URL_Env } from '../config';
 import { NgxGalleryModule } from 'ngx-gallery';
 
 @NgModule({
@@ -111,7 +112,8 @@ export class AppMaterialModule {}
         NgxGalleryModule
     ],
     providers: [
-      PhotoshootService
+      PhotoshootService,
+      API_BASE_URL_Env
     ],
     entryComponents: [PhotoshootGalleryComponent],
     bootstrap: [AppComponent]
