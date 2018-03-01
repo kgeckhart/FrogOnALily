@@ -1,4 +1,4 @@
-<mat-toolbar class="menubar transparent mat-typography">
+<mat-toolbar class="menubar transparent mat-button">
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
         <button fxFlex="85px" mat-menu-item routerLink="/home">Home</button>
         <button fxFlex="85px" mat-menu-item routerLink="/about">About</button>
@@ -6,22 +6,24 @@
         <button fxFlex="125px" mat-menu-item routerLink="/investment">Investment</button>
     </div>
     <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
-    <mat-icon>menu</mat-icon>
+        <mat-icon>menu</mat-icon>
     </button>
     <span class="fill-remaining-space"></span>
 </mat-toolbar>
-<mat-menu x-position="before" #menu="matMenu">
+<mat-menu class="mat-button" x-position="before" #menu="matMenu">
     <button mat-menu-item routerLink="/home">Home</button>
     <button mat-menu-item routerLink="/about">About</button>
     <button mat-menu-item routerLink="/gallery">Gallery</button>
     <button mat-menu-item routerLink="/investment">Investment</button>
 </mat-menu>
 <div class="site-banner">
-    <div class ="company-name">
-        <p>Frog on a lily photography</p>
-    </div>
-    <div class ="company-moto">
-        <p>"Your beauty, my focus!"</p>
+    <div class="companyinfo">
+        <div class ="company-name mat-display-3">
+            <p>Frog on a lily photography</p>
+        </div>
+        <div class ="company-moto mat-heading">
+            <p>"Your beauty, my focus!"</p>
+        </div>
     </div>
 </div>
 <div class="content">

@@ -13,7 +13,8 @@ import 'rxjs/add/operator/switchMap';
 export class PhotoshootGalleryComponent implements OnInit {
     galleryImages: Observable<NgxGalleryImage[]>;
     galleryOptions: NgxGalleryOptions[] = [
-        { 'previewCloseOnEsc': true, 'previewKeyboardNavigation': true, 'previewFullscreen': true, 'width': '800px', 'height': '533px' },
+        { 'previewCloseOnEsc': true, 'previewKeyboardNavigation': true, 'previewFullscreen': true, 'width': '800px',
+            'height': '533px', 'imageSwipe': true },
         { 'breakpoint': 800, 'width': '600px', 'height': '400px' },
         { 'breakpoint': 500, 'width': '400px', 'height': '267px', 'thumbnailsColumns': 3 },
         { 'breakpoint': 300, 'width': '200px', 'height': '133px', 'thumbnailsColumns': 2 }
