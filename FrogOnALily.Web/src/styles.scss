@@ -14,7 +14,7 @@ $custom-typography: mat-typography-config(
 @include mat-core($custom-typography);
 
 html { 
-    background: url(/assets/IMG_6300-1_Shrunk.jpg) no-repeat center center; 
+    background: url(/assets/background-1920.jpg) no-repeat top left; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
